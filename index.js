@@ -25,35 +25,91 @@ return cart
 
 }
 
+
+
 function viewCart() {
   
-for(var i = 0;i<=cart.length ;i++){
-  
-var statement = "In your cart, you have "
-  
-if (cart.length===0)  {
-  
-console.log("Your shopping cart is empty.")  
+if(cart.length===0) {
+ 
+ return console.log('Your shopping cart is empty.') 
+  }
 
+var allkeys=[];
+
+for(var i = 0; i<cart.length;i++){
+  
+var itemandprice = cart[i]
+
+var item = Object.keys(itemandprice)
+
+var price = itemandprice[item];
+  
+
+allkeys.push(item + " at " + "$" +price) }
+
+if (cart.length==1){
+
+console.log("In your cart, you have "+ allkeys[0] +".") 
+  
 }
 
-else if(cart.length==1){
+if (cart.length==2){
+  
+return console.log("In your cart, you have "+ allkeys[0] + " and " + allkeys[1] + ".")
+  
+} 
 
-console.log("'"+ statement + Object.keys(cart[i])+ " at " + "$" + cart[i][Object.keys(cart[i])[0]]+ "." + "'") }
+if (cart.length>=3){
   
-else {console.log("nope")}
-  
-}
-  } 
+var last = allkeys.pop();
+
+return console.log("In your cart, you have " + allkeys.join(', ') + ", and " + last +".")
+
+
+} }
+
+
 
 
 function total() {
-  // write your code here
-}
+
+var result = 0;  
+  
+for (var i=0 ; i<cart.length; i++){
+  
+var itemAndPrice = cart[i];
+
+var item = Object.keys(itemAndPrice);
+
+var price = itemAndPrice[item];
+
+result += price;}
+
+return result} 
+
+
+
 
 function removeFromCart(item) {
-  // write your code here
+  
+var allkeys=[];
+  
+for(var i = 0; i<cart.length;i++){
+  
+var itemandprice = cart[i];
+
+var key = Object.keys(itemandprice)
+
+allkeys.push(key);
+
+
 }
+ return allkeys 
+  
+}
+
+
+
 
 function placeOrder(cardNumber) {
   // write your code here
